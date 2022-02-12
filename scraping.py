@@ -32,14 +32,18 @@ import requests
 # url = 'https://www.theguardian.com/football/2022/feb/10/chelsea-braced-for-kepa-arrizabalaga-bids-and-open-to-summer-exit'
 
 #abc news
-url = 'https://abcnews.go.com/Politics/pressure-builds-biden-democrats-move-past-covid/story?id=82754983'
+# url = 'https://abcnews.go.com/Politics/pressure-builds-biden-democrats-move-past-covid/story?id=82754983'
 
+url = 'https://edition.cnn.com/2022/02/10/politics/biden-ukraine-things-could-crazy/index.html'
 def getUrl(url):
     pageContent = requests.get(url)
     print(pageContent)
     return pageContent
 
 def parse(pagecontent):
+    if pagecontent.status_code == 404:
+        print('Page not found')
+        return 0
     coup = BeautifulSoup(pagecontent.content, 'html.parser')
     try:
         if coup.find('article') is not None:
