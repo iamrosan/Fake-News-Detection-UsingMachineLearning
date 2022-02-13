@@ -87,20 +87,21 @@
                 placeholder="Paste Your Article Here..."
               >
               </textarea>
-              <br>
+              <br />
               <input type="submit" value="Predict" />
             </form>
           </div>
           <div class="url-div">
             <form method="post" action="">
-                {% csrf_token %}
-              <input type="url"
+              {% csrf_token %}
+              <input
+                type="url"
                 name="url-article"
                 id=""
                 size="50"
                 placeholder="Paste your URL here..."
               />
-                <br>
+              <br />
               <input type="submit" value="Predict" />
             </form>
           </div>
@@ -108,10 +109,10 @@
       </div>
     </div>
 
-    <div id="about" class="ianimate">
+    <div id="about">
       <h1>About Project</h1>
       <p class="about-para">
-        Starting the day with the news keeps people updated on current issue of
+        <!-- Starting the day with the news keeps people updated on current issue of
         the world. Social media has been the fastest, easiest and rapid way to
         circulate news. However the most preferred news source comes with the
         great risk of exposure to “fake news” that is written intentionally to
@@ -123,7 +124,9 @@
         detect the fake news using Natural Language Processing (NLP) and long
         short term memory (LSTM). Based on the headlines and the content of the
         news the proposed system recognizes whether the news is fake or real in
-        short amount of time
+        short amount of time -->
+        {{values.title}} <br />
+        {% for data in values.article %} {{data}} {% endfor %}
       </p>
     </div>
 

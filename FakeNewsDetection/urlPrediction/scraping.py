@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
+import re
+import string
 
 # cnn
 # url = 'https://edition.cnn.com/2022/02/10/politics/donald-trump-gop-incumbents-impeach-votes/index.html' 
@@ -40,7 +42,29 @@ def getUrl(url):
     print(pageContent)
     return pageContent
 
+
+
+# def cleanWord(text):
+#   text = text.lower()
+#   text = re.sub('\[.*?\]', '', text)
+#   text = re.sub("\\W", " ", text)
+#   text = re.sub('https?://\S+|www\.\S+', '', text)
+#   text = re.sub('<.*?>+', '', text)
+#   text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
+#   text = re.sub('\n', '', text)
+#   text = re.sub('\w*\d\w*', '', text)
+#   return text
+
+# def remove_html_tags(text):
+#     """Remove html tags from a string"""
+#     import re
+#     clean = re.compile('<.*?>')
+#     return re.sub(clean, '', text)
+
+
+
 def parse(pagecontent):
+    data = []
     if pagecontent.status_code != 200:
         print('Page not found')
         return 0
@@ -69,7 +93,7 @@ def parse(pagecontent):
             count = 0
             newsArticles = contentParses[flag].find_all('p')
             for newsArticle in newsArticles:
-                if count == 3:
+                if count == 5:
                     break
                 print(newsArticle.text, end=' ')
                 count +=1
@@ -89,10 +113,22 @@ def parse(pagecontent):
 
         for newsArticle in newsArticles:
             print(newsArticle.text, end=' ')
-    
+            data.append(newsArticle.text)
+        dict = {
+            'title': headline,
+            'article': data
+        }
+        print(dict)
+        return dict
+
     except:
         print("Error Occured")
 
+    # data = cleanWord(newsArticles)
+    # data = remove_html_tags(newsArticles)
+    
+    
+    
 
 
 # parse(getUrl(url))
