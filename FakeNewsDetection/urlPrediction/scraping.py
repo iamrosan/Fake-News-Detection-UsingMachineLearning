@@ -1,8 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-import re
-import string
-
 # cnn
 # url = 'https://edition.cnn.com/2022/02/10/politics/donald-trump-gop-incumbents-impeach-votes/index.html' 
 
@@ -37,7 +34,9 @@ import string
 # url = 'https://abcnews.go.com/Politics/pressure-builds-biden-democrats-move-past-covid/story?id=82754983'
 
 # url = 'https://edition.cnn.com/2022/02/10/politics/biden-ukraine-things-could-crazy/index.html'
-def getUrl(url):
+
+
+def getUrl(url): #get the response 
     pageContent = requests.get(url)
     print(pageContent)
     return pageContent
@@ -65,18 +64,20 @@ def getUrl(url):
 
 def parse(pagecontent):
     data = []
-    if pagecontent.status_code != 200:
+    if pagecontent.status_code != 200: #beside response 200 for all response show page not found
         print('Page not found')
         return 0
-    coup = BeautifulSoup(pagecontent.content, 'html.parser')
+    coup = BeautifulSoup(pagecontent.content, 'html.parser') #Parse the content using bs4
     try:
-        if coup.find('article') is not None:
+        if coup.find('article') is not None: #if news article is in article tag
             print('article')
             contentParse = coup.find('article')
+
         # elif coup.find('section') is not None:
         #     print('section')
             # contentParse = coup.find('section')
-        elif coup.find('div') is not None:
+
+        elif coup.find('div') is not None: #if news article is in div tag
             print("div")
             #searching for the right div is left here
             contentParses = coup.find_all('div')
@@ -96,15 +97,20 @@ def parse(pagecontent):
                 if count == 5:
                     break
                 print(newsArticle.text, end=' ')
+                data.append(newsArticle.text)
                 count +=1
-            return 1
+            dictt = {
+            'title': headline,
+            'article': data
+        }
+            return dictt # to process only the article which is in div tag
         else:
             errormessage = 'No content found'
             print(errormessage)
         
         # print('teha gayana')
         # print(contentParse)
-
+# to process the article which is in article tag
         headline = contentParse.find('h1').text
         print(f"Title: {headline}")
 
@@ -114,14 +120,14 @@ def parse(pagecontent):
         for newsArticle in newsArticles:
             print(newsArticle.text, end=' ')
             data.append(newsArticle.text)
-        dict = {
+        dictt = {
             'title': headline,
             'article': data
         }
-        print(dict)
-        return dict
+        print(dictt)
+        return dictt
 
-    except:
+    except: #any error occured during the process 
         print("Error Occured")
 
     # data = cleanWord(newsArticles)
