@@ -14,6 +14,7 @@ from . import scraping
 # Create your views here.
 def home(request):
     context = {}
+
     #Article Prediction part
     articleDiv = request.POST.get('article') if request.POST.get('article') != None else ''
     scraping.printArticle(articleDiv)
@@ -23,7 +24,6 @@ def home(request):
     if urlll != '':
         contentsReceived = scraping.getUrl(urlll)
         value = scraping.parse(contentsReceived)
-        
         context={
             'values': value
         }
