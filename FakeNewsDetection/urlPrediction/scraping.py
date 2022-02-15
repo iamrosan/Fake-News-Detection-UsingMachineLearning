@@ -134,7 +134,8 @@ def parse(pagecontent):
     # data = remove_html_tags(newsArticles)
     
     
-    
+def printArticle(art):
+    print(art)
 
 
 # parse(getUrl(url))
