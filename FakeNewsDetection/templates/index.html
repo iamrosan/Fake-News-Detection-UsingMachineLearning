@@ -1,231 +1,127 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- links -->
-    <!-- CSS only -->
-    <link rel="stylesheet" href=" {% static 'css/style.css' %} " />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://img.icons8.com/clouds/100/000000/google-web-search.png"
-      sizes="96x96"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href=" {% static 'css/style.css'%} ">
+    
+    <link rel="stylesheet" href="{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="overlay-container">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div class="title">About Us</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
 
-    <!--  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
-    />
-    <title>Fake News Detection</title>
-  </head>
-  <!-- <body onload="loadFunction()"> -->
-  <body>
-    <!-- <div id="loading"> -->
-    <!-- <img src="./images/loading.gif!w340" alt=""> -->
-    <!-- </div> -->
-    <!-- Nav -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="up">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Fake News Detection</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#teams">Teams</a>
-            </li>
-          </ul>
+            <div class="modal-body">
+                <div id="container">
+                    <div id="circle"><img src="images/IMG_7712.png" alt="ronish"></div>
+                    <span>Ronish Shrestha</span>
+                    <span class="image">
+                        <a href="#" class="fa fa-facebook fa-1x"></a>
+                        <a href="#" class="fa fa-linkedin fa-1x"></a>
+                        <a href="#" class="fa fa-github fa-1x"></a>
+                        <a href="#" class="fa fa-instagram fa-1x"></a>
+                    </span>
+                </div>
+                <div id="container">
+                    <div id="circle"><img src="images/roshan.jpg" alt="roshan"></div>
+                    <span>Roshan Shrestha</span>
+                    <span class="image">
+                        <a href="#" class="fa fa-facebook fa-1x"></a>
+                        <a href="#" class="fa fa-linkedin fa-1x"></a>
+                        <a href="#" class="fa fa-github fa-1x"></a>
+                        <a href="#" class="fa fa-instagram fa-1x"></a>
+                    </span>
+                </div>
+                <div id="container">
+                    <div id="circle"><img src="images/rubin.jpg" alt="rubin"></div>
+                    <span>Rubin Baidhya</span>
+                    <span class="image">
+                        <a href="#" class="fa fa-facebook fa-1x"></a>
+                        <a href="#" class="fa fa-linkedin fa-1x"></a>
+                        <a href="#" class="fa fa-github fa-1x"></a>
+                        <a href="#" class="fa fa-instagram fa-1x"></a>
+                    </span>
+                </div>
+                <div id="container">
+                    <div id="circle"><img src="images/sairus.jpg" alt="sairus"></div>
+                    <span>Sairush Tamang</span>
+                    <span class="image">
+                        <a href="#" class="fa fa-facebook fa-1x"></a>
+                        <a href="#" class="fa fa-linkedin fa-1x"></a>
+                        <a href="#" class="fa fa-github fa-1x"></a>
+                        <a href="#" class="fa fa-instagram fa-1x"></a>
+                    </span>
+                </div>
+            </div>
         </div>
-      </div>
-    </nav>
-    <!-- -------- -->
+    </div>
+    <div id="overlay" ></div>
+    
+    <div class="top-shadow"></div>
+    <div class="bottom-shadow"></div>
+    
+    <span class="text"><h1>Fake News Detector</h1></span>    
+    <div class="search-box">
+        <span class="options">
+            <button class="article-btn" onclick="toggleContent(1)">For Article</button>
+            <button class="article-btn" onclick="toggleContent(0)">For Url</button>
+        </span>
 
-    <div id="main">
-      <div class="wrapper">
-        <div class="btnDiv">
-          <button onclick="toggleContent(0)" id="active">For Article</button>
-          <button onclick="toggleContent(1)">For URLS</button>
-        </div>
-        <div class="search-div">
-          <div class="article-div">
-            <form action="" method="post">
-              {% csrf_token %}
-              <textarea
-                id="article-id"
-                name="article"
-                rows="10"
-                cols="70"
-                placeholder="Paste Your Article Here..."
-              >
-              </textarea>
-              <br />
-              <input type="submit" value="Predict" />
+        <div class="article-div">
+            <form action='' method='POST'>              
+                <input type="text" required placeholder="Enter your text here.." name="article">
+                <!-- <button type="submit"><i class="fa fa-search" style="font-size:24px"></i></button> -->
+                <button type="submit" class="predict-btn"><h5>Predict</h5></button>
             </form>
-          </div>
-          <div class="url-div">
-            <form method="post" action="">
-              {% csrf_token %}
-              <input
-                type="url"
-                name="url-article"
-                id=""
-                size="50"
-                placeholder="Paste your URL here..."
-              />
-              <br />
-              <input type="submit" value="Predict" />
+        </div>
+
+        <div class="url-div">
+            <form method="POST" action=''>
+                <input type="url" required name="url-article" id="" size="50" placeholder="Paste your URL here...">
+                <button type="submit" class="predict-btn"><h5>Predict</h5></button>
             </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="about">
-      <h1>About Project</h1>
-      <p class="about-para">
-        <!-- Starting the day with the news keeps people updated on current issue of
-        the world. Social media has been the fastest, easiest and rapid way to
-        circulate news. However the most preferred news source comes with the
-        great risk of exposure to “fake news” that is written intentionally to
-        mislead the readers. Fake news not only mislead the readers but also
-        creates a devastating impact so it is a major concern. Thus the
-        increasing fake news globally tends to encroach human right and public
-        safety. A person needs to have vast knowledge about the current issue to
-        discover whether a news is real or fake. So we propose a system to
-        detect the fake news using Natural Language Processing (NLP) and long
-        short term memory (LSTM). Based on the headlines and the content of the
-        news the proposed system recognizes whether the news is fake or real in
-        short amount of time -->
-        {{values.title}} <br />
-        {% for data in values.article %} {{data}} {% endfor %}
-      </p>
-    </div>
-
-    <div id="teams" class="ianimate">
-      <h1>Team Members</h1>
-      <div class="team-wrapper">
-        <div id="ronish" class="team-member">
-          <div class="tm-photo">
-            <img src="{% static 'images/ronish.jpg' %}" alt="" />
-          </div>
-          <h6>Ronish Shrestha</h6>
-          <div class="socio-link">
-            <a href="#">
-              <i class="fa fa-facebook-square" aria-hidden="true"></i>
-            </a>
-            <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i> </a>
-            <a href="#">
-              <i class="fa fa-twitter-square" aria-hidden="true"></i>
-            </a>
-            <a href="#"> <i class="fa fa-linkedin" aria-hidden="true"></i> </a>
-            <a href="#"> <i class="fa fa-github" aria-hidden="true"></i></a>
-          </div>
         </div>
 
-        <div id="roshan" class="team-member">
-          <div class="tm-photo">
-            <img src="{% static 'images/roshan.jpg' %}" alt="" />
-          </div>
-          <h6>Roshan Shrestha</h6>
-          <div class="socio-link">
-            <a href="#">
-              <i class="fa fa-facebook-square" aria-hidden="true"></i>
-            </a>
-            <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i> </a>
-            <a href="#">
-              <i class="fa fa-twitter-square" aria-hidden="true"></i>
-            </a>
-            <a href="#"> <i class="fa fa-linkedin" aria-hidden="true"></i> </a>
-            <a href="#"> <i class="fa fa-github" aria-hidden="true"></i></a>
-          </div>
-        </div>
-        <div id="rubin" class="team-member">
-          <div class="tm-photo">
-            <img src="{% static 'images/rubin.jpg' %}" alt="" />
-          </div>
-          <h6>Rubin Baidhya</h6>
-          <div class="socio-link">
-            <a href="#">
-              <i class="fa fa-facebook-square" aria-hidden="true"></i>
-            </a>
-            <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i> </a>
-            <a href="#">
-              <i class="fa fa-twitter-square" aria-hidden="true"></i>
-            </a>
-            <a href="#"> <i class="fa fa-linkedin" aria-hidden="true"></i> </a>
-            <a href="#"> <i class="fa fa-github" aria-hidden="true"></i></a>
-          </div>
-        </div>
-        <div id="sairus" class="team-member">
-          <div class="tm-photo">
-            <img src="{% static 'images/sairus.jpg' %}" alt="" />
-          </div>
-          <h6>Sairush Tamang</h6>
-          <div class="socio-link">
-            <a href="#">
-              <i class="fa fa-facebook-square" aria-hidden="true"></i>
-            </a>
-            <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i> </a>
-            <a href="#">
-              <i class="fa fa-twitter-square" aria-hidden="true"></i>
-            </a>
-            <a href="#"> <i class="fa fa-linkedin" aria-hidden="true"></i> </a>
-            <a href="#"> <i class="fa fa-github" aria-hidden="true"></i></a>
-          </div>
-        </div>
-      </div>
+        <h4 class="below_textarea">"The News is <span>Real</span>"</h4>
     </div>
-    <div id="go-up">
-      <a href="#up"
-        ><i
-          class="fa fa-arrow-circle-up"
-          aria-hidden="true"
-          style="font-size: 40px"
-        ></i
-      ></a>
-    </div>
-
+    
     <div class="footer">
-      <p>
-        Copyright © Khwopa College of Engineering @<span id="yearSpan"></span>
-      </p>
+        <div id="box-1">
+            
+            <button data-modal-target="#modal">About us</button>
+            <ul>
+                <li>@ Ronish Shrestha</li>
+                <li>@ Roshan Shrestha</li>
+                <li>@ Rubin Baidhya</li>
+                <li>@ Sairush Tamang</li>
+            </ul><br>
+            <span id="copyright_text"><i id="copyright" class="fas fa-copyright fa-lg"></i><h4>Khwopa College of Engineering</h4></span>
+        </div>
+
+        <div id="box-2">
+            <img class = "footer-image" src="images/footer_image.jpg" alt="footer_image">
+            <h4>News</h4>
+            <h5>With growing news in online portal, connect with us for detecting the correct news</h5>
+            <span class="image">
+                <a href="#" class="fa fa-facebook fa-lg"></a>
+                <a href="#" class="fa fa-instagram fa-lg"></a>
+            </span>
+        </div>
+
     </div>
 
-    <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-    <script src="{% static 'js/main.js' %}"></script>
-  </body>
+    <script src="{% static 'js/main.js'%} "></script>
+
+    
+</body>
 </html>

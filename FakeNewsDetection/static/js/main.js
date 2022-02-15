@@ -1,68 +1,48 @@
-// variables
-let loader = document.getElementById('loading');
-let articleDiv = document.querySelector('.article-div');
-let urlDiv = document.querySelector('.url-div');
-let wrapp = document.querySelector('.wrapper');
-let btn = document.getElementsByTagName('button');
-const divvs = document.querySelectorAll('.ianimate');
-let dateVar = document.querySelector('#yearSpan');
-// let conditionss ={
-//     threshold: 1,
-// }
+const openModalButtons = document.querySelectorAll('[data-modal-target]');
+const closeModalButtons = document.querySelectorAll('[data-close-button]');
+const overlay = document.getElementById('overlay');
+const articleDiv= document.querySelector('.article-div');
+const urlDiv = document.querySelector('.url-div');
 
-function loadFunction(){
-    loader.style.display='none';
-}
-
-console.log(btn)
 function toggleContent(num){
-    if(num==0){
-        articleDiv.style.display = 'block';
-        urlDiv.style.display = 'none';
-        btn[1].style.backgroundColor ='red';
-        btn[2].style.backgroundColor ='white';
-
+    if(num==1){
+      urlDiv.style.display='none';
+      articleDiv.style.display='block';
     }else{
-        articleDiv.style.display = 'none';
-        urlDiv.style.display = 'block';
-       wrapp.style.width = '40%';
-       btn[1].style.padding ='3px';
-       btn[2].style.padding ='3px';
-       btn[2].style.backgroundColor ='red';
-       btn[1].style.backgroundColor ='white';
+      articleDiv.style.display='none';
+      urlDiv.style.display='block';
     }
 }
 
-//Year
-let dateJs = new Date();
-let currentYear = dateJs.getFullYear();
-dateVar.innerText = currentYear;
-
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        // console.log(entry);
-        entry.target.classList.toggle("show",entry.isIntersecting);
-        if(entry.isIntersecting) observer.unobserve(entry.target)
+openModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = document.querySelector(button.dataset.modalTarget)
+      openModal(modal)
     })
-},{
-    threshold:1,
-});
+  })
 
-// const observer = new IntersectionObserver(
-//     function(entries, observer){
-//         entries.forEach(entry=>{
-//             if(!entry.isIntersecting){
-//                 return;
-//             }else{
-//                 entry.target.classList.add('show');
-//                 observer.unobserve(entry.target);
-//             }
-//         });
-        
-//     }
-//     ,conditionss);
-
-
-    divvs.forEach(divv=>{
-        observer.observe(divv);
+overlay.addEventListener('click', () => {
+    const modals = document.querySelectorAll('.modal.active')
+    modals.forEach(modal => {
+      closeModal(modal)
     })
+  })
+  
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal')
+      closeModal(modal)
+    })
+  })
+  
+function openModal(modal) {
+    if (modal == null) return
+    modal.classList.add('active')
+    overlay.classList.add('active')
+  }
+  
+function closeModal(modal) {
+    if (modal == null) return
+    modal.classList.remove('active')
+    overlay.classList.remove('active')
+  }
