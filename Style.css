@@ -85,6 +85,7 @@ body{
     position: relative;
     width: 42rem;
     height: 4rem;
+    top: 0;
     left: -2rem;
     padding: 20px 20px 20px 20px;
     border-radius: 50px 0 0 50px;
@@ -98,6 +99,7 @@ body{
 .predict-btn{  /* predict button css*/
     width: 5rem;
     height: 3.7rem;
+    top: 305px;
     position: absolute;
     z-index: 2;
     background: linear-gradient(to right, white, rgba(0, 0, 0, 0.2));
