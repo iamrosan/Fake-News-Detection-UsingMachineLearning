@@ -7,8 +7,7 @@
     <title>Fake News Detector</title>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="Style.css">
-    <script defer src="script.js"></script>
-
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,16 +69,28 @@
     <div class="top-shadow"></div>
     <div class="bottom-shadow"></div>
     
-    <span class="text"><h1>Fake News Detector</h1></span>
-    
+    <span class="text"><h1>Fake News Detector</h1></span>    
     <div class="search-box">
         <span class="options">
-            <h4>Text</h4>
-            <h4>URL</h4>
+            <button class="article-btn" onclick="toggleContent(1)">For Article</button>
+            <button class="article-btn" onclick="toggleContent(0)">For Url</button>
         </span>
-        <input type="text" placeholder="Enter your text here..">
-        <!-- <button type="submit"><i class="fa fa-search" style="font-size:24px"></i></button> -->
-        <button type="submit"><h5>Predict</h5></button>
+
+        <div class="article-div">
+            <form action='' method='POST'>              
+                <input type="text" required placeholder="Enter your text here..">
+                <!-- <button type="submit"><i class="fa fa-search" style="font-size:24px"></i></button> -->
+                <button type="submit" class="predict-btn"><h5>Predict</h5></button>
+            </form>
+        </div>
+
+        <div class="url-div">
+            <form method="POST" action=''>
+                <input type="url" required name="url-article" id="" size="50" placeholder="Paste your URL here...">
+                <button type="submit" class="predict-btn"><h5>Predict</h5></button>
+            </form>
+        </div>
+
         <h4 class="below_textarea">"The News is <span>Real</span>"</h4>
     </div>
     
@@ -108,7 +119,8 @@
 
     </div>
 
-    .
+    <script src="script.js"></script>
+
     
 </body>
 </html>

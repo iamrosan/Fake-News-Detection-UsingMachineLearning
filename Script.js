@@ -1,6 +1,18 @@
-const openModalButtons = document.querySelectorAll('[data-modal-target]')
-const closeModalButtons = document.querySelectorAll('[data-close-button]')
-const overlay = document.getElementById('overlay')
+const openModalButtons = document.querySelectorAll('[data-modal-target]');
+const closeModalButtons = document.querySelectorAll('[data-close-button]');
+const overlay = document.getElementById('overlay');
+const articleDiv= document.querySelector('.article-div');
+const urlDiv = document.querySelector('.url-div');
+
+function toggleContent(num){
+    if(num==1){
+      urlDiv.style.display='none';
+      articleDiv.style.display='block';
+    }else{
+      articleDiv.style.display='none';
+      urlDiv.style.display='block';
+    }
+}
 
 openModalButtons.forEach(button => {
     button.addEventListener('click', () => {
