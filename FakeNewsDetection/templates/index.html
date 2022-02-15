@@ -12,8 +12,15 @@
     <link rel="stylesheet" href="{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body{
+            background-image: url("{% static 'images/Background_image.jpg' %}");
+        }
+    </style>
 </head>
 <body>
+    
     <div class="overlay-container">
         <div class="modal" id="modal">
             <div class="modal-header">
@@ -23,7 +30,7 @@
 
             <div class="modal-body">
                 <div id="container">
-                    <div id="circle"><img src="images/IMG_7712.png" alt="ronish"></div>
+                    <div id="circle"><img src="{% static 'images/IMG_7712.png' %}" alt="ronish"></div>
                     <span>Ronish Shrestha</span>
                     <span class="image">
                         <a href="#" class="fa fa-facebook fa-1x"></a>
@@ -33,7 +40,7 @@
                     </span>
                 </div>
                 <div id="container">
-                    <div id="circle"><img src="images/roshan.jpg" alt="roshan"></div>
+                    <div id="circle"><img src="{% static 'images/roshan.jpg' %}" alt="roshan"></div>
                     <span>Roshan Shrestha</span>
                     <span class="image">
                         <a href="#" class="fa fa-facebook fa-1x"></a>
@@ -43,7 +50,7 @@
                     </span>
                 </div>
                 <div id="container">
-                    <div id="circle"><img src="images/rubin.jpg" alt="rubin"></div>
+                    <div id="circle"><img src="{% static 'images/rubin.jpg' %}" alt="rubin"></div>
                     <span>Rubin Baidhya</span>
                     <span class="image">
                         <a href="#" class="fa fa-facebook fa-1x"></a>
@@ -53,7 +60,7 @@
                     </span>
                 </div>
                 <div id="container">
-                    <div id="circle"><img src="images/sairus.jpg" alt="sairus"></div>
+                    <div id="circle"><img src="{% static 'images/sairus.jpg' %}" alt="sairus"></div>
                     <span>Sairush Tamang</span>
                     <span class="image">
                         <a href="#" class="fa fa-facebook fa-1x"></a>
@@ -78,7 +85,8 @@
         </span>
 
         <div class="article-div">
-            <form action='' method='POST'>              
+            <form action='' method='POST'> 
+                {% csrf_token %}             
                 <input type="text" required placeholder="Enter your text here.." name="article">
                 <!-- <button type="submit"><i class="fa fa-search" style="font-size:24px"></i></button> -->
                 <button type="submit" class="predict-btn"><h5>Predict</h5></button>
@@ -87,6 +95,7 @@
 
         <div class="url-div">
             <form method="POST" action=''>
+                {% csrf_token %}
                 <input type="url" required name="url-article" id="" size="50" placeholder="Paste your URL here...">
                 <button type="submit" class="predict-btn"><h5>Predict</h5></button>
             </form>
@@ -109,7 +118,7 @@
         </div>
 
         <div id="box-2">
-            <img class = "footer-image" src="images/footer_image.jpg" alt="footer_image">
+            <img class = "footer-image" src="{% static 'images/footer_image.jpg' %}" alt="footer_image">
             <h4>News</h4>
             <h5>With growing news in online portal, connect with us for detecting the correct news</h5>
             <span class="image">
