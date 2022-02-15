@@ -13,5 +13,6 @@ def home(request):
         context={
             'values': value
         }
+        print(context)
     # print(urlll)
     return render(request, 'index.html', context)
