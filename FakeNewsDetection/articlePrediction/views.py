@@ -5,7 +5,7 @@ from . import scraping
 from keras.preprocessing import text,sequence
 import tensorflow as tf
 from tensorflow import keras
-from . import svm
+from . import svm, process
 
 from keras.preprocessing.sequence import pad_sequences
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -48,8 +48,8 @@ def home(request):
     # tokenized_test = tokenizer.texts_to_sequences(news)
     # news = sequence.pad_sequences(tokenized_test, maxlen=max_len)
     
-    # # tfidf_vectorizer=TfidfVectorizer(stop_words='english')
-    # # news = tfidf_vectorizer.transform(news)
+    # tfidf_vectorizer=TfidfVectorizer(stop_words='english')
+    # news = tfidf_vectorizer.transform(news)
     
     # value = lstmModel.predict(news)
     # context={
@@ -63,6 +63,8 @@ def index(request):
     #Article Prediction part
     articleDiv = request.POST.get('article') if request.POST.get('article') != None else ''
 
+
+    articleDiv = process.cleanWord(articleDiv)
     value = svm.Svm(articleDiv)
     context={
             'values': value
