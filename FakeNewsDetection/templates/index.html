@@ -23,9 +23,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <style>
-      body {
+      /* body {
         background-image: url("{% static 'images/Background_image.jpg' %}");
-      }
+      } */
     </style>
   </head>
   <body>
@@ -131,7 +131,7 @@
         </form>
       </div>
 
-      <!-- <h4 class="below_textarea">"The News is <span>{}</span>"</h4> -->
+      <h4 class="below_textarea">"The News is <span>{{values}}</span>"</h4>
       {% block content %}{% endblock content %}
     </div>
 

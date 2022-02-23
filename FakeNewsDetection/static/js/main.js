@@ -6,14 +6,14 @@ const urlDiv = document.querySelector(".url-div");
 const predictBtn = document.querySelector(".predict-btn");
 const output = document.querySelector("#output");
 
-predictBtn.addEventListener("click", function () {
-  document.querySelector(".below_textarea").style.display = "block";
-  if (output.innerText == "FAKE") {
-    output.style.color = "red";
-  } else {
-    output.style.color = "green";
-  }
-});
+// predictBtn.addEventListener("click", function () {
+//   document.querySelector(".below_textarea").style.display = "block";
+//   if (output.innerText == "FAKE") {
+//     output.style.color = "red";
+//   } else {
+//     output.style.color = "green";
+//   }
+// });
 
 function toggleContent(num) {
   if (num == 1) {

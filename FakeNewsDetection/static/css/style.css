@@ -8,7 +8,7 @@
 }
 
 body {
-  background-image: url("images/Background_image.jpg");
+  /* background-image: url("images/Background_image.jpg"); */
   background-size: cover;
   background-position: 0% 40%;
   background-repeat: no-repeat;
@@ -118,7 +118,7 @@ body {
   font-family: Rockwell;
 }
 .search-box .below_textarea {
-  display: none;
+  /* display: none; */
   position: absolute;
   top: 58%;
   left: 0;

@@ -25,7 +25,7 @@ def Svm(text):
     
     import pickle
 
-    with open('E:\RB\Fake-News-Detection-BCT-Mini-Project-\FakeNewsDetection\model.pkl', 'rb') as file:
+    with open('E:\RB\Fake-News-Detection-BCT-Mini-Project-\FakeNewsDetection\models\model.pkl', 'rb') as file:
         SVM_Model = pickle.load(file)
 
     tfidf_vectorizer=TfidfVectorizer(stop_words='english', max_df=0.7)
