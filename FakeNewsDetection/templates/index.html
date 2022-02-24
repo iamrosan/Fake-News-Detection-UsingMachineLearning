@@ -23,12 +23,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <style>
-      /* body {
+      body {
         background-image: url("{% static 'images/Background_image.jpg' %}");
-      } */
+      }
     </style>
   </head>
   <body>
+    <div id="loader" class="center"></div>
     <div class="overlay-container">
       <div class="modal" id="modal">
         <div class="modal-header">
@@ -131,7 +132,7 @@
         </form>
       </div>
 
-      <h4 class="below_textarea">"The News is <span>{{values}}</span>"</h4>
+      <h4 class="below_textarea"></h4>
       {% block content %}{% endblock content %}
     </div>
 
@@ -170,5 +171,16 @@
     </div>
 
     <script src="{% static 'js/main.js'%}"></script>
+    <script>
+      document.onreadystatechange = function () {
+        if (document.readyState !== "complete") {
+          document.querySelector("body").style.visibility = "hidden";
+          document.querySelector("#loader").style.visibility = "visible";
+        } else {
+          document.querySelector("#loader").style.display = "none";
+          document.querySelector("body").style.visibility = "visible";
+        }
+      };
+    </script>
   </body>
 </html>

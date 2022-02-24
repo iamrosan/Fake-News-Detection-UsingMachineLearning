@@ -1,5 +1,5 @@
 import pickle
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from keras.preprocessing.text import one_hot
 from . import scraping
@@ -68,12 +68,15 @@ def home(request):
 def index(request):
     context = {}
     #Article Prediction part
-    articleDiv = request.POST.get('article') if request.POST.get('article') != None else ''
+    if request.method == 'POST':
+        articleDiv = request.POST.get('article') if request.POST.get('article') != None else ''
 
-
-    articleDiv = process.cleanWord(articleDiv)
-    value = svm.Svm(articleDiv)
-    context={
-            'values': value
-        }
-    return render(request, 'index2.html', context)
+        articleDiv = process.cleanWord(articleDiv)
+        value = svm.Svm(articleDiv)
+        context={
+                'article': articleDiv,
+                'values': value
+            }
+        return render(request, 'index2.html', context)
+    else:
+        return render(request, 'index.html', context)
