@@ -1,5 +1,5 @@
 import pickle
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import scraping
 from keras.preprocessing import text,sequence
@@ -57,7 +57,8 @@ def home(request):
     #     }
     # # print(urlll)
     # return render(request, 'index.html', context)
-
+    return redirect('index')
+    
 def index(request):
     context = {}
     #Article Prediction part

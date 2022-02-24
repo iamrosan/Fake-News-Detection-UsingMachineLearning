@@ -6,7 +6,11 @@ const urlDiv = document.querySelector(".url-div");
 const predictBtn = document.querySelector(".predict-btn");
 
 predictBtn.addEventListener("click", function () {
-  document.querySelector(".below_textarea").style.display = "block";
+  document.querySelector('#loading').style.visibility='visible';
+  window.onload = function(){
+    console.log('content loaded');
+    document.querySelector(".below_textarea").style.display = "inline";
+  }
 });
 
 function toggleContent(num) {

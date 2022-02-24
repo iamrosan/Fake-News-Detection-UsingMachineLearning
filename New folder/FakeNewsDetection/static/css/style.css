@@ -17,6 +17,18 @@ body {
     width: 100%; */
 }
 
+#loading{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  visibility: hidden;
+  z-index: 1000;
+}
+#loading img{
+  object-fit: cover;
+}
+
 .text {
   position: absolute;
   opacity: 0.9;
