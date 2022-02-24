@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 
 def Svm(text):
     #Importing dataset
-    true_data = pd.read_csv('E:\RB\Fake-News-Detection-BCT-Mini-Project-\FakeNewsDetection\processedTrue.csv')
-    fake_data = pd.read_csv('E:\RB\Fake-News-Detection-BCT-Mini-Project-\FakeNewsDetection\processedFake.csv')
+    true_data = pd.read_csv('./processedTrue.csv')
+    fake_data = pd.read_csv('./processedFake.csv')
 
     data = pd.concat( [true_data, fake_data], ignore_index=True, sort=False)
 
@@ -25,7 +25,7 @@ def Svm(text):
     
     import pickle
 
-    with open('E:\RB\Fake-News-Detection-BCT-Mini-Project-\FakeNewsDetection\models\model.pkl', 'rb') as file:
+    with open('E:\My Works\Mini Project 6th Sem\FakeNewsDetection - Copy\models\model.pkl', 'rb') as file:
         SVM_Model = pickle.load(file)
 
     tfidf_vectorizer=TfidfVectorizer(stop_words='english', max_df=0.7)

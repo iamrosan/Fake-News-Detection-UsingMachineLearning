@@ -70,7 +70,7 @@ def parse(pagecontent):
     coup = BeautifulSoup(pagecontent.content, 'html.parser') #Parse the content using bs4
     try:
         if coup.find('article') is not None: #if news article is in article tag
-            print('article')
+            # print('article')
             contentParse = coup.find('article')
 
         # elif coup.find('section') is not None:
@@ -78,7 +78,7 @@ def parse(pagecontent):
             # contentParse = coup.find('section')
 
         elif coup.find('div') is not None: #if news article is in div tag
-            print("div")
+            # print("div")
             #searching for the right div is left here
             contentParses = coup.find_all('div')
             # print(len(contentParses))
@@ -88,7 +88,7 @@ def parse(pagecontent):
                 if contentParse.find('h1') is not None:
                     # print('xir3')
                     headline = contentParse.find('h1').text
-                    print(f'Title: {headline}')
+                    # print(f'Title: {headline}')
                     break
                 flag +=1
             count = 0
@@ -96,13 +96,16 @@ def parse(pagecontent):
             for newsArticle in newsArticles:
                 if count == 5:
                     break
-                print(newsArticle.text, end=' ')
+                # print(newsArticle.text, end=' ')
                 data.append(newsArticle.text)
                 count +=1
+            data.insert(0, headline)
+            data = ' '.join(data)
             dictt = {
-            'title': headline,
+            # 'title': headline,
             'article': data
         }
+            print(dictt)
             return dictt # to process only the article which is in div tag
         else:
             errormessage = 'No content found'
@@ -118,12 +121,18 @@ def parse(pagecontent):
     # print(len(newsArticles))
 
         for newsArticle in newsArticles:
-            print(newsArticle.text, end=' ')
+            # print(newsArticle.text, end=' ')
             data.append(newsArticle.text)
+        # dictt = {
+        #     'title': headline,
+        #     'article': data
+        # }
+        data.insert(0, headline)
+        data = ' '.join(data)
         dictt = {
-            'title': headline,
             'article': data
         }
+
         print(dictt)
         return dictt
 
