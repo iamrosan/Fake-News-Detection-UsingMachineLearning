@@ -29,6 +29,9 @@
     </style>
   </head>
   <body>
+    <div id="loadingGif" style="display: none">
+      <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
+    </div>
     <div id="loader" class="center"></div>
     <div class="overlay-container">
       <div class="modal" id="modal">
@@ -111,9 +114,13 @@
             required
             placeholder="Enter your text here.."
             name="article"
+            class="txt_1"
+            onkeyup="saveValue(this);"
           />
           <!-- <button type="submit"><i class="fa fa-search" style="font-size:24px"></i></button> -->
-          <button type="submit" class="predict-btn"><h5>Predict</h5></button>
+          <button type="submit" class="predict-btn" onclick="showDiv()">
+            <h5>Predict</h5>
+          </button>
         </form>
       </div>
 
@@ -124,15 +131,16 @@
             type="url"
             required
             name="url-article"
-            id=""
+            class="txt_1"
             size="50"
             placeholder="Paste your URL here..."
           />
-          <button type="submit" class="predict-btn"><h5>Predict</h5></button>
+          <button type="submit" class="predict-btn" onclick="showDiv()">
+            <h5>Predict</h5>
+          </button>
         </form>
       </div>
 
-      <h4 class="below_textarea"></h4>
       {% block content %}{% endblock content %}
     </div>
 

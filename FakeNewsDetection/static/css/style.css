@@ -129,8 +129,8 @@ body {
 .predict-btn {
   /* predict button css*/
   width: 5rem;
-  height: 3.7rem;
-  top: 305px;
+  height: 3.8rem;
+  top: 304.7px;
   position: absolute;
   z-index: 2;
   background: linear-gradient(to right, white, rgba(0, 0, 0, 0.2));

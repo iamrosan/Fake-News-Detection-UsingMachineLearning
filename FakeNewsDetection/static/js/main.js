@@ -5,15 +5,61 @@ const articleDiv = document.querySelector(".article-div");
 const urlDiv = document.querySelector(".url-div");
 const predictBtn = document.querySelector(".predict-btn");
 const output = document.querySelector("#output");
+let newsLabel = document.querySelector("#nw").innerText;
 
-predictBtn.addEventListener("click", function () {
-  document.querySelector(".below_textarea").style.display = "block";
-  if (output.innerText == "FAKE") {
-    output.style.color = "red";
-  } else {
-    output.style.color = "green";
-  }
-});
+function showDiv() {
+  document.getElementsByTagName("body").style.display = "none";
+  document.getElementById("loadingGif").style.display = "block";
+  setTimeout(function () {
+    document.getElementById("loadingGif").style.display = "none";
+    document.getElementById("body").style.display = "block";
+  }, 2000);
+}
+
+// function timerMessage() {
+//   articleDiv.innerHTML = "Thanks for waiting!";
+// }
+
+// let timeoutID = setTimeout(timerMessage, 000000000000000000000000);
+
+// predictBtn.addEventListener("submit", function () {
+//   clearTimeout(timeoutID);
+// timerMsg.innerHTML = "Timer was stopped";
+// document.onreadystatechange = function () {
+//   if (document.readyState !== "complete") {
+//     document.querySelector("body").style.visibility = "hidden";
+//     document.querySelector("#loader").style.visibility = "visible";
+//   } else {
+//     document.querySelector("#loader").style.display = "none";
+//     document.querySelector("body").style.visibility = "visible";
+//   }
+// };
+// });
+// function myFun() {
+//   if (newsLabel == "FAKE") {
+//     newsLabel.style.color = "red";
+//     clearInterval(v1);
+//   } else {
+//     newsLabel.style.color = "green";
+//     clearInterval(v1);
+//   }
+// }
+// document.getElementById("txt_1").value = getSavedValue("txt_1"); // set the value to this input
+
+// //Save the value function - save it to localStorage as (ID, VALUE)
+// function saveValue(e) {
+//   var id = e.id; // get the sender's id to save it .
+//   var val = e.value; // get the value.
+//   localStorage.setItem(id, val); // Every time user writing something, the localStorage's value will override .
+// }
+
+// //get the saved value function - return the value of "v" from localStorage.
+// function getSavedValue(v) {
+//   if (!localStorage.getItem(v)) {
+//     return ""; // You can change this to your defualt value.
+//   }
+//   return localStorage.getItem(v);
+// }
 
 function toggleContent(num) {
   if (num == 1) {
