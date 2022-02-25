@@ -5,15 +5,43 @@ const articleDiv = document.querySelector(".article-div");
 const urlDiv = document.querySelector(".url-div");
 const predictBtn = document.querySelector(".predict-btn");
 const output = document.querySelector("#output");
+  let outputText = document.querySelector('#output-text');
 
 predictBtn.addEventListener("click", function () {
+  
   document.querySelector(".below_textarea").style.display = "block";
+  setTimeout(setFun, 3000);
+  console.log('h');
+  // let changeSpanColor = setInterval(myfunc, 100);
+ 
+});
+
+// function clickkevent(){
+//   const output = document.querySelector("#output");
+//   let outputText = document.querySelector('#output-text');
+//   document.querySelector(".below_textarea").style.display = "block";
+//   setTimeout(setFun, 3000);
+//   console.log('h');
+// }
+
+function setFun(){
+  outputText.style.display='inline';
+  console.log('h')
+
+}
+// outputText.style.display='inline';
+  
+
+function myfunc(){
+  console.log('h');
   if (output.innerText == "FAKE") {
     output.style.color = "red";
+    clearInterval(changeSpanColor);
   } else {
     output.style.color = "green";
+    clearInterval(changeSpanColor);
   }
-});
+}
 
 function toggleContent(num) {
   if (num == 1) {

@@ -144,7 +144,7 @@ def parse(pagecontent):
     
     
 def printArticle(art):
-    print(art)
+    print('output: '+art)
 
 
 # parse(getUrl(url))
