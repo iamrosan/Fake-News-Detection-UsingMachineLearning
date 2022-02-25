@@ -1,5 +1,9 @@
 from bs4 import BeautifulSoup
 import requests
+
+#guardian -real
+# url = 'https://www.theguardian.com/politics/2022/feb/24/britons-living-in-eu-cant-keep-pre-brexit-rights-european-court-advised'
+
 # cnn
 # url = 'https://edition.cnn.com/2022/02/10/politics/donald-trump-gop-incumbents-impeach-votes/index.html' 
 
