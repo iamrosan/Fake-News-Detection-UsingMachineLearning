@@ -88,7 +88,7 @@ def parse(pagecontent):
                 if contentParse.find('h1') is not None:
                     # print('xir3')
                     headline = contentParse.find('h1').text
-                    print(f'Title: {headline}')
+                    # print(f'Title: {headline}')
                     break
                 flag +=1
             count = 0
@@ -96,13 +96,16 @@ def parse(pagecontent):
             for newsArticle in newsArticles:
                 if count == 5:
                     break
-                print(newsArticle.text, end=' ')
+                # print(newsArticle.text, end=' ')
                 data.append(newsArticle.text)
                 count +=1
+            data.insert(0, headline)
+            data = ' '.join(data)
             dictt = {
-            'title': headline,
+            # 'title': headline,
             'article': data
         }
+            print(dictt)
             return dictt # to process only the article which is in div tag
         else:
             errormessage = 'No content found'
@@ -112,18 +115,24 @@ def parse(pagecontent):
         # print(contentParse)
 # to process the article which is in article tag
         headline = contentParse.find('h1').text
-        print(f"Title: {headline}")
+        # print(f"Title: {headline}")
 
         newsArticles = contentParse.find_all('p')
     # print(len(newsArticles))
 
         for newsArticle in newsArticles:
-            print(newsArticle.text, end=' ')
+            # print(newsArticle.text, end=' ')
             data.append(newsArticle.text)
+        # dictt = {
+        #     'title': headline,
+        #     'article': data
+        # }
+        data.insert(0, headline)
+        data = ' '.join(data)
         dictt = {
-            'title': headline,
             'article': data
         }
+
         print(dictt)
         return dictt
 
@@ -135,7 +144,7 @@ def parse(pagecontent):
     
     
 def printArticle(art):
-    print(art)
+    print('Output: '+art)
 
 
 # parse(getUrl(url))

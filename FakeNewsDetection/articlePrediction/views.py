@@ -2,11 +2,10 @@ import pickle
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from keras.preprocessing.text import one_hot
-from . import scraping
 from keras.preprocessing import text,sequence
 import tensorflow as tf
 from tensorflow import keras
-from . import svm, process
+from . import svm, process, scraping
 
 from keras.preprocessing.sequence import pad_sequences
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -67,14 +66,26 @@ def home(request):
 
 def index(request):
     context = {}
-    #Article Prediction part
     if request.method == 'POST':
+        #Article Prediction part
         articleDiv = request.POST.get('article') if request.POST.get('article') != None else ''
-
-        articleDiv = process.cleanWord(articleDiv)
-        value = svm.Svm(articleDiv)
-        context={
-                'article': articleDiv,
+        if(articleDiv != ''):
+            articleDiv = process.cleanWord(articleDiv)
+            value = svm.Svm(articleDiv)
+            context={
+                    'values': value
+                }
+        
+        # Url Prediction Part
+        urlll = request.POST.get('url-article') if request.POST.get('url-article') != None else ''
+        # scraping.printArticle(urlll)
+        if urlll != '':
+            contentsReceived = scraping.getUrl(urlll)
+            value = scraping.parse(contentsReceived)
+            value = str(process.cleanWord(value['article']))
+            scraping.printArticle(value)
+            value = svm.Svm(value)
+            context={
                 'values': value
             }
         return render(request, 'index2.html', context)
