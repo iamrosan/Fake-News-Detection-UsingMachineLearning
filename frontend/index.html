@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="Style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="overlay-container">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div class="title">About Us</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div id="container">
+                    <div id="circle"><img src="images/IMG_7712.png" alt="ronish"></div>
+                    <span>Ronish Shrestha</span>
+                    <span class="image">
+                        <a href="#" class="fa fa-facebook fa-1x"></a>
+                        <a href="#" class="fa fa-linkedin fa-1x"></a>
+                        <a href="#" class="fa fa-github fa-1x"></a>
+                        <a href="#" class="fa fa-instagram fa-1x"></a>
+                    </span>
+                </div>
+                <div id="container">
+                    <div id="circle"><img src="images/roshan.jpg" alt="roshan"></div>
+                    <span>Roshan Shrestha</span>
+                    <span class="image">
+                        <a href="#" class="fa fa-facebook fa-1x"></a>
+                        <a href="#" class="fa fa-linkedin fa-1x"></a>
+                        <a href="#" class="fa fa-github fa-1x"></a>
+                        <a href="#" class="fa fa-instagram fa-1x"></a>
+                    </span>
+                </div>
+                <div id="container">
+                    <div id="circle"><img src="images/rubin.jpg" alt="rubin"></div>
+                    <span>Rubin Baidhya</span>
+                    <span class="image">
+                        <a href="#" class="fa fa-facebook fa-1x"></a>
+                        <a href="#" class="fa fa-linkedin fa-1x"></a>
+                        <a href="#" class="fa fa-github fa-1x"></a>
+                        <a href="#" class="fa fa-instagram fa-1x"></a>
+                    </span>
+                </div>
+                <div id="container">
+                    <div id="circle"><img src="images/sairus.jpg" alt="sairus"></div>
+                    <span>Sairush Tamang</span>
+                    <span class="image">
+                        <a href="#" class="fa fa-facebook fa-1x"></a>
+                        <a href="#" class="fa fa-linkedin fa-1x"></a>
+                        <a href="#" class="fa fa-github fa-1x"></a>
+                        <a href="#" class="fa fa-instagram fa-1x"></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="overlay" ></div>
+    
+    <div class="top-shadow"></div>
+    <div class="bottom-shadow"></div>
+    
+    <span class="text"><h1>Fake News Detector</h1></span>    
+    <div class="search-box">
+        <span class="options">
+            <button class="article-btn" onclick="toggleContent(1)">For Article</button>
+            <button class="article-btn" onclick="toggleContent(0)">For Url</button>
+        </span>
+
+        <div class="article-div">
+            <form action='' method='POST'>              
+                <input type="text" required placeholder="Enter your text here..">
+                <!-- <button type="submit"><i class="fa fa-search" style="font-size:24px"></i></button> -->
+                <button type="submit" class="predict-btn"><h5>Predict</h5></button>
+            </form>
+        </div>
+
+        <div class="url-div">
+            <form method="POST" action=''>
+                <input type="url" required name="url-article" id="" size="50" placeholder="Paste your URL here...">
+                <button type="submit" class="predict-btn"><h5>Predict</h5></button>
+            </form>
+        </div>
+
+        <h4 class="below_textarea">"The News is <span>Real</span>"</h4>
+    </div>
+    
+    <div class="footer">
+        <div id="box-1">
+            
+            <button data-modal-target="#modal">About us</button>
+            <ul>
+                <li>@ Ronish Shrestha</li>
+                <li>@ Roshan Shrestha</li>
+                <li>@ Rubin Baidhya</li>
+                <li>@ Sairush Tamang</li>
+            </ul><br>
+            <span id="copyright_text"><i id="copyright" class="fas fa-copyright fa-lg"></i><h4>Khwopa College of Engineering</h4></span>
+        </div>
+
+        <div id="box-2">
+            <img class = "footer-image" src="images/footer_image.jpg" alt="footer_image">
+            <h4>News</h4>
+            <h5>With growing news in online portal, connect with us for detecting the correct news</h5>
+            <span class="image">
+                <a href="#" class="fa fa-facebook fa-lg"></a>
+                <a href="#" class="fa fa-instagram fa-lg"></a>
+            </span>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+    
+</body>
+</html>

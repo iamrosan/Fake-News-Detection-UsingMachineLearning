@@ -1,0 +1,9 @@
+{% extends 'index.html' %} {% block content %} {% if values == 'REAL' %}
+<h4 class="below_textarea">
+  "The News is <span style="color: green">{{values}}</span>"
+</h4>
+{% else %}
+<h4 class="below_textarea">
+  "The News is <span style="color: red">{{values}}</span>"
+</h4>
+{% endif %} {% endblock content %}
