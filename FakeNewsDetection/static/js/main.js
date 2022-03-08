@@ -62,14 +62,22 @@ function showDiv() {
 // }
 
 function toggleContent(num) {
+  const articleBtn = document.getElementById("article");
+  const urlBtn = document.getElementById("url");
   if (num == 1) {
     urlDiv.style.display = "none";
     articleDiv.style.display = "block";
+    articleBtn.classList.add("current");
+    urlBtn.classList.remove("current");
   } else {
     articleDiv.style.display = "none";
     urlDiv.style.display = "block";
+    articleBtn.classList.remove("current");
+    urlBtn.classList.add("current");
   }
 }
+
+articleBtn.addEventListener("click", function () {});
 
 openModalButtons.forEach((button) => {
   button.addEventListener("click", () => {

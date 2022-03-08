@@ -39,6 +39,11 @@ import requests
 
 # url = 'https://edition.cnn.com/2022/02/10/politics/biden-ukraine-things-could-crazy/index.html'
 
+#fake news
+# https://archive.ph/Mms2t
+# https://archive.ph/UsLsK
+# https://archive.ph/B7M7S
+
 
 def getUrl(url): #get the response 
     pageContent = requests.get(url)

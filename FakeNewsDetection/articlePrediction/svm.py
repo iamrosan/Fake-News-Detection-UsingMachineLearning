@@ -41,6 +41,6 @@ def Svm(text):
     value = SVM_Model.predict(news)
 
     if value == 1:
-        return('FAKE')
+        return('Fake')
     else:
-        return('REAL')
+        return('True')

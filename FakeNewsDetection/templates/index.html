@@ -100,10 +100,16 @@
     <span class="text"><h1>Fake News Detector</h1></span>
     <div class="search-box">
       <span class="options">
-        <button class="article-btn" onclick="toggleContent(1)">
+        <button
+          class="article-btn current"
+          id="article"
+          onclick="toggleContent(1)"
+        >
           For Article
         </button>
-        <button class="article-btn" onclick="toggleContent(0)">For Url</button>
+        <button class="article-btn" id="url" onclick="toggleContent(0)">
+          For Url
+        </button>
       </span>
 
       <div class="article-div">
