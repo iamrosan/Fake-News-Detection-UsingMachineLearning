@@ -107,8 +107,6 @@ def parse(pagecontent):
             errormessage = 'No content found'
             print(errormessage)
         
-        # print('teha gayana')
-        # print(contentParse)
 # to process the article which is in article tag
         headline = contentParse.find('h1').text
         # print(f"Title: {headline}")
