@@ -54,7 +54,7 @@ For testing article of the news, click on **For Article**.
  ![article](https://user-images.githubusercontent.com/43814550/158328311-cc1a519a-48bc-4cbb-8355-84ec9a3eafba.png)
 
 
-For testing article of the news, click on **For Url**.
+For testing contents of url of online news portal, click on **For Url** and insert the link of the news article.
  
  ![url](https://user-images.githubusercontent.com/43814550/158328442-485c615b-21e5-4e04-ad0f-e88d1f01f3cd.png)
 
